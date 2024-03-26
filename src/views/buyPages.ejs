@@ -1,0 +1,57 @@
+    <%- include("layout/header"); %>
+
+    <main style="min-height: 386px;">
+        <div class="bpleft">  
+            <h2>Buy pages</h2>
+            <form method="POST" id="form">
+                <label for="page-num" class="bp_numplabel">Pages to buy:</label>
+                <input id="page-num" class="bp_nump" type="number" name="bp_nump" placeholder="Numbers of pages...">
+                <br>
+                <select class="bp_nump" name="bp_sizep" id="page-type">  
+                    <option value="0" hidden>Choose page type</option>
+                    <option value="A3">A3</option>
+                    <option value="A4">A4</option>
+                </select>
+                <br>
+                <input id="submitbtn" type="submit" value="Xác nhận" disabled="true">
+            </form>
+            <div id="total" hidden></div>
+            <div class="bpinfo">
+                <p>Pages left: <span id="pages-remain"><%= user.pages %></span> (pages)<br></p>
+                <p>Amount: <span id="balance-remain"><%= user.balance %></span> (VNĐ)<br></p>
+                <p>Price (per page): <span id="page-price"></span> (VNĐ)</p>                
+            </div>
+        </div>
+        <div class="bpright">
+            <h2 class="title">History:</h2>
+            <div class="tb">
+                <table id="bptable">
+                    <thead>
+                        <tr class="bpoddrow">
+                            <th scope="col">No</th>
+                            <th scope="col">Create At</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Pages</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% var no = 0;
+                        for(var i = history.length - 1; i >= 0; i--) { %>
+                        <tr>
+                            <td><%= no++; %></td>
+                            <% for(var key in history[i]) { 
+                                if(key != "studentid") { %>
+                                    <td><%= history[i][key]; %></td>
+                                <% }
+                            } %>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="/public/scripts/buyPagesScript.js"></script>
+    <%- include("layout/footer"); %>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="/public/styles/ActivityLogStyle.css">
+    <link rel="stylesheet" href="/public/styles/newReqStyle.css">
+    <link rel="stylesheet" href="/public/styles/usersInfor.css">
+    <link rel="stylesheet" href="/public/styles/buyPages.css">
+    <link rel="stylesheet" href="/public/styles/logIn.css">
+    <link rel="stylesheet" href="/public/styles/home.css">
+
+    <title>HCMUT SPSS</title>
+    <link rel="stylesheet" href="../themify-icons/themify-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div style="display: none; background-color: rgba(0, 0, 0, 0.7); position: fixed; width: 100%; height: 100%; z-index: 2;" id="logout_popup">
+        <div class="popup">
+            <img src="../img/mess.webp" width="50px" height="50px">
+            <div class="popup_text">
+                <h2 style="margin-top:5%; color:var(--main-color)">Message:</h2>
+                <h4 style="color:var(--text-color)">Are you sure you want to logout?</h4>
+            </div>
+            <div class="button-group">
+                <button class="button" id="del" type="button">Cancel</button>
+                <button class="button" id="out">Log out</button>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="left">
+            <div class="img">
+                <img src="../img/logo.png" width="90px" height="70px">
+            </div>
+            <div class="text">
+                <h5>ĐẠI HỌC QUỐC GIA TP.HCM</h5>
+                <h6>TRƯỜNG ĐẠI HỌC BÁCH KHOA</h6>
+            </div>
+        </div>
+        <div class="middle" style="width: 40%;">
+            <a href="/">Home</a>
+            <a href="../printing-request">New Request</a>
+            <a href="../buy-pages">More Pages</a>
+            <a href="../activitylog">History</a>
+        </div>
+        <div class="right">
+            <button id="logout" class="icon"><i
+                    class="user-item ti-power-off"></i></button>
+            <a href="../user-info">
+                <button id="profile" class="icon"><i class="user-item ti-user"></i></button></a>
+            <p id="student-inf"></p>
+
+        </div>
+    </div>
+    <style>
+        /* header */
+        .header {
+            width: 100%;
+            box-shadow: #0000003a 1px 1px 0 0;
+            background-color: rgba(26, 26, 101, 0.863);
+            color: var(--text-white);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            height: 96px;
+        }
+
+        .header .left {
+            width: 30%;
+            float: left;
+            display: inline-flex;
+        }
+
+        .header .left .img {
+            margin-top: 1rem;
+            display: inline;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header .left .text {
+            text-align: center;
+            padding: 4%;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+            display: inline;
+        }
+
+        .header .left .text p {
+            font-size: 17px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header .middle {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .header .middle a {
+            display: inline-block;
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            height: 96px;
+            line-height: 96px;
+        }
+
+        .header .right {
+            padding: 1.7%;
+            display: inline-flex;
+            float: right;
+            width: 20%;
+        }
+
+        .header .right button {
+            width: 20%;
+            display: inline-flex;
+            background: none;
+            border: none;
+            margin-top: 0.5rem;
+        }
+
+        .header .right p {
+            width: 50%;
+        }
+
+        .header .right button i {
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text-white);
+            text-decoration: none;
+        }
+
+        .icon i {
+            color: var(--text-white);
+        }
+
+        @keyframes change-color {
+            from {
+                color: var(--text-white);
+            }
+
+            to {
+                color: var(--main-color);
+            }
+        }
+
+        .icon:hover i,
+        a:hover {
+            animation: change-color 0.2s forwards;
+        }
+
+        #student-inf {
+            margin-left: 1rem;
+        }
+
+        /* media queries */
+
+        @media (max-width: 1400px) {
+            .header .left .text {
+                margin: 1%;
+                margin-left: 25%;
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            html {
+                font-size: 70%;
+            }
+
+            .header .left .text {
+                margin-left: 23%;
+            }
+        }
+
+        @media (max-width: 900px) {
+            html {
+                font-size: 80%;
+            }
+
+            .header .left .text {
+                margin-left: 30%;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 800px) {
+            html {
+                font-size: 75%;
+            }
+
+            .header .left .img {
+                scale: calc(0.8)
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .header .left .img {
+                display: none;
+            }
+
+            .header .left .text {
+
+                width: 100%;
+                text-align: center;
+            }
+
+            .header .left.text h4 {
+                margin-bottom: 2%;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            html {
+                font-size: 60%;
+            }
+        }
+
+        /* End header part */
+    </style>
