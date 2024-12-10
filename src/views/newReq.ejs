@@ -1,0 +1,96 @@
+<%- include("layout/header"); %>
+<div class="new-print-request" style="padding: 20px;">
+    <h5>New Printing Request</h5>
+    <div class="print-request" style="padding: 0 32px;">
+        <form id="form" method="post" enctype="multipart/form-data" class="d-flex flex-row justify-content-between">
+            <div class="choose-file w-30">
+                <h6>Choose file</h6>
+                <label class="custom-file-upload w-100">
+                    <p class="btn btn-outline-dark w-70">Upload file</p>
+                    <input name="file" id="file-upload" style="display: none;" type="file" value="Upload file" multiple>
+                </label>
+                <p style="font-size: 14px;">or</p>
+                <div>
+                    <a href="#" class="btn btn-outline-dark w-70" style="text-decoration: none;">Printed file</a>
+                </div>
+                <div class="file-chosen">
+                    <h6>Your file</h6>
+                    <label class="w-70 text-center" id="file-name" for="file-upload">Your file name here</label>
+                </div>
+            </div>
+            <div class="print-options w-30">
+                <h6>Print options</h6>
+                <div>
+                    <!-- <p>Choose Pages print</p> -->
+                    <select name="page-print" id="page-print" class="w-70">
+                        <option value="0" hidden>Choose pages print</option>
+                        <option value="1">1 page</option>
+                        <option value="2">2 pages</option>
+                    </select>
+                    <p style="visibility: hidden;">and</p>
+                    <!-- <p>Choose Pages type</p> -->
+                    <select name="page-type" id="page-type" class="w-70">
+                        <option value="0" hidden>Choose page type</option>
+                        <option value="A3">A3</option>
+                        <option value="A4">A4</option>
+                    </select>
+                    <div class="select-page w-70" style="margin-top: 28px;">
+                        <div>
+                            <label><input type="radio" name="page-range" value="current page"> Current Page</label>
+                            <label><input type="radio" name="page-range" value="current view"> Current View</label>
+                            <label><input type="radio" name="page-range" value="all page"> All Page</label>
+                        </div>
+                        <div style="margin-top: 4px;">
+                            <label>
+                                <input type="radio" name="page-range" value="select page"> Select Page:
+                                <div id="distance" style="display: none;">
+                                    From: <input id="from" class="w-30" name="from" type="number" value="0">
+                                    To: <input id="to" class="w-30" name="to" type="number" value="0">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="odd-even" style="margin-top: 24px;" class="w-70">
+                        <p style="width: fit-content; display: inline-block;">Odd or Even pages:</p>
+                        <select name="page-number" id="page-number">
+                            <option value="all">All Pages</option>
+                            <option value="odd">Odd Pages</option>
+                            <option value="eve">Even Pages</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="complete-request w-30">
+                <h6>Complete</h6>
+                <div>
+                    <div class="select-printer">
+                        <!-- <p>Choose Printer</p> -->
+                        <select name="printer" id="printer" class="w-70">
+                            <option value="0" hidden>Choose printer</option>
+                            <option value="1">Printer 1</option>
+                            <option value="2">Printer 2</option>
+                            <option value="3">Printer 3</option>
+                        </select>
+                        <p style="visibility: hidden;">and</p>
+                        <div class="number-copies">
+                            <p>Number of copies</p>
+                            <input id="number_copies" type="number" class="w-70" value="1" style="padding: 4px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="result" style="margin-top: 32px;">
+                    <h6>Result</h6>
+                    <div class="total-page">Your Pages: <span><%= user.pages %></span> (pages)</div>
+                    <div class="remain">Remain: <span></span> (pages)</div><br>
+                </div>
+                <div class="buttons d-flex flex-row justify-content-between w-70" style="margin-top: 32px;">
+                    <a href="/buy-pages" class="btn btn-outline-primary" style="text-decoration: none;">More pages</a>
+                    <button id="submit-btn" class="btn btn-outline-success" type="submit">Submit</button>
+                    <button id="reset" class="btn btn-outline-danger" type="reset">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/public/scripts/newReqScript.js"></script>
+<%- include("layout/footer"); %>

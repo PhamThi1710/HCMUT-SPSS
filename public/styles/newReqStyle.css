@@ -1,0 +1,43 @@
+h5, h6 {
+    margin-bottom: 16px;
+}
+
+.print-request p {
+    margin: 0;
+}
+
+.choose-file .btn:hover {
+    background-color: white;
+    color: black;
+}
+.choose-file .file-chosen {
+    margin-top: 32px;
+}
+.file-chosen label {
+    border: 1px dashed black;
+    padding: 12px;
+}
+
+.print-options select {
+    padding: 4px;
+}
+.print-options .select-page label {
+    padding: 4px;
+}
+
+.complete-request select {
+    padding: 4px;
+}
+
+.w-100 {
+    width: 100%;
+}
+.w-70 {
+    width: 70%;
+}
+.w-30 {
+    width: 30%;
+}
+.text-center {
+    text-align: center;
+}

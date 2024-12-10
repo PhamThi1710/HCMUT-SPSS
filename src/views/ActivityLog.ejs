@@ -1,0 +1,36 @@
+<%- include("layout/header"); %>
+    <div class="body" id="body_acti">
+        
+        <section>
+            <h4>ACTIVITY LOG</h2>
+                <input type="text" id="searchInput" onkeyup="SearchFile()" placeholder="Search for file name..">
+                <table border="1" id="table_log" style="overflow-y: scroll; height: 300px; display: block;">
+                    <colgroup>
+                        <col span="2" style="width: 240px">
+                        <col style="width:200px">
+                        <col span="5" style="width: 100px;">
+                        <col span="2" style="width: 170px">
+                    </colgroup>
+                    <style>
+                    </style>
+                    <thead>
+                        <tr>
+                            <th>Printing Start Time</th>
+                            <th>Printing End Time</th>
+                            <th>File name</th>
+                            <th>Total Pages</th>
+                            <th>One/Double Sided</th>
+                            <th>Number Of Copies</th>
+                            <th>Paper Size</th>
+                            <th>Pages (Deducted From Balance)</th>
+                            <th>Printer</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_tbody"></tbody>
+
+                </table>
+        </section>
+    </div>
+    <script src="/public/scripts/ActivityLogScript.js"></script>
+    <%- include("layout/footer"); %>

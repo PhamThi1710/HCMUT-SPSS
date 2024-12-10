@@ -1,0 +1,113 @@
+main {
+    margin-top: 32px;
+    padding: 0;
+    width: 100%;
+}
+
+.bpleft{
+    width:25%;
+    height: fit-content;
+    margin-left: 3%;
+    display: inline-block;
+}
+
+.bpleft h2{
+    position: relative;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.bp_numplabel{
+    margin-top: 10%;
+    font-size: 18px;
+    color: #192D62;
+}
+
+.bp_nump{
+    display: block;
+    margin: 2px 0px;
+    font-size: 18px;
+    color: #000;
+    border: 1.5px solid #192D62;
+    border-radius: 2px;
+    width: 100%;
+    height:fit-content;
+}
+
+#submitbtn{
+    display: block;
+    border: 8px 0;
+    float:inline-end;
+    font-size: 18px;
+    color: #000;
+    background-color: #fff;
+    border: 1.5px solid #192D62;
+    border-radius: 4px;
+    width: 110px;
+    height: 35px;
+    text-align: center;
+    font-weight: bold;
+}
+
+select.bp_nump:hover{
+    border: 1.5px solid #192D62;
+    cursor: pointer;
+}
+
+#submitbtn:hover{
+    background-color: #192D62;
+    color: #fff;
+    cursor: pointer;
+}
+
+.bpinfo{
+    margin: 18% 0 auto;
+    font-size: 16px;
+}
+
+.bpright{
+    float: right;
+    clear: left;
+    width: 55%;
+    margin-right: 3%;
+    position: relative;
+}
+
+.tb {
+    max-height: 324px;
+    overflow-y: scroll;
+    border: 1px solid black;
+}
+.tb::-webkit-scrollbar {
+    display: none;
+}
+
+.title {
+    color: #000;
+    font-size: 16px;
+    font-style: italic;
+}
+
+#bptable {
+    width: 100%;
+    overflow: scroll;
+    text-align: center;
+    font-size: 16px;
+    line-height: 2;
+}
+
+#bptable thead {
+    width: 100%;
+}
+
+#bptable .bpoddrow{
+    background-color: rgb(213, 213, 213);
+    padding: 8px;
+    text-align: center;
+    position: sticky;
+    top: 0px;
+}
+
+#bptable tbody tr:nth-child(even) {
+    background-color: #efefef;
+}
